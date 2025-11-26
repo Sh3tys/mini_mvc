@@ -15,7 +15,7 @@ final class HomeController extends Controller
         // Appelle le moteur de rendu avec la vue et ses paramètres
         $this->render('home/index', params: [
             // Définit le titre transmis à la vue
-            'title' => 'Mini MVC',
+            'title' => 'SparkleLoop',
             'prenom' => 'Toto',
             'prenom2' => 'Tata',
         ]);
@@ -27,6 +27,7 @@ final class HomeController extends Controller
         $this->render('home/users', params: [
             // Définit le titre transmis à la vue
             'users' => $users = User::getAll(),
+            'title' => 'Liste des utilisateurs',
         ]);
     }
 }

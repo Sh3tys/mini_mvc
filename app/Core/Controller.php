@@ -10,7 +10,7 @@ abstract class Controller
     protected function render(string $view, array $params = []): void
     {
         // Extrait les paramètres en variables locales, sans écraser les existantes
-        extract($params, EXTR_SKIP);
+        extract($params);
         // Construit le chemin du fichier de vue
         $viewFile = dirname(__DIR__) . '/Views/' . $view . '.php';
         // Construit le chemin du layout principal
