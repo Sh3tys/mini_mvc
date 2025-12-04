@@ -1,0 +1,40 @@
+# Sujet du TP – Projet E-Commerce en PHP (Vanilla)
+
+Vous devez développer un site web d’e-commerce **en PHP Vanilla** (PHP pur, sans framework) avec **une base de données relationnelle** (MySQL).
+
+### Objectif du projet
+
+Concevoir une application web complète permettant à un utilisateur d’acheter des produits en ligne.
+
+### Fonctionnalités minimales attendues
+
+Votre site doit inclure au minimum :
+
+1. **Page d’accueil** affichant une liste de produits
+2. **Page détail produit**
+3. **Système de panier** (ajout, suppression, affichage du total)
+4. **Authentification utilisateur** (inscription + connexion)
+5. **Passage de commande** (validation du panier)
+6. **BONUS : Espace client** permettant de voir l’historique des commandes
+
+### Contraintes techniques
+
+- PHP pur (aucun framework).
+- Base de données relationnelle SQL (MySQL) avec au moins 5 tables (produits, utilisateurs, commandes, paniers et catégories).
+- Le site doit être organisé de façon propre (dossiers / fichiers logiques).
+- Le code doit être commenté et compréhensible.
+
+### Livrables
+
+- Le dossier du projet complet (source code)
+- Le script SQL de création de la base de données
+- Un fichier `README.md` expliquant :
+    - comment installer la DB
+    - comment lancer le projet
+    - identifiants test pour se connecter
+
+### Bonus (non obligatoire)
+
+- Interface responsive
+- Gestion stock
+- Filtre de produits (catégories, prix, etc.)

@@ -1,0 +1,116 @@
+-- ============================================
+-- BASE DE DONNÉES SPARKLELOOP - VERSION SIMPLE
+-- ============================================
+
+-- Table pour les utilisateurs
+
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    prenom VARCHAR(100) NOT NULL,
+    nom VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table pour les Catégories
+
+CREATE TABLE categorie (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table des produits
+
+CREATE TABLE produit (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    description TEXT,
+    prix DECIMAL(10, 2) NOT NULL,
+    image VARCHAR(255),
+    categorie_id INT NOT NULL,
+    FOREIGN KEY (categorie_id) REFERENCES categorie(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- table de l'historique des commandes
+
+CREATE TABLE commande (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    produit_id INT NOT NULL,
+    quantite INT NOT NULL DEFAULT 1,
+    date_achat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (produit_id) REFERENCES produit(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table n'est commande pas encore passé
+
+CREATE TABLE panier (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    produit_id INT NOT NULL,
+    quantite INT NOT NULL DEFAULT 1,
+    date_ajout TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (produit_id) REFERENCES produit(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ============== DONNNEES DE TESTE ======================
+
+-- Utilisateurs de test (password: password123)
+INSERT INTO user (prenom, nom, email, password) VALUES
+('Admin', 'SparkleLoop', 'admin@sparkleloop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
+('Marie', 'Dupont', 'marie@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
+('Jean', 'Martin', 'jean@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+
+-- Catégories
+INSERT INTO categorie (nom) VALUES
+('Bracelets'),
+('Colliers'),
+('Bagues'),
+('Boucles d\'oreilles');
+
+-- Produits
+INSERT INTO produit (nom, description, prix, image, categorie_id) VALUES
+-- Bracelets
+('Bracelet Or Blanc', 'Bracelet élégant en or blanc 18 carats', 1299.99, '/images/products/bracelet-1.jpg', 1),
+('Bracelet Argent', 'Bracelet fin en argent 925', 159.99, '/images/products/bracelet-2.jpg', 1),
+('Bracelet Or Rose', 'Jonc moderne en or rose', 899.99, '/images/products/bracelet-3.jpg', 1),
+
+-- Colliers
+('Collier Diamant', 'Collier avec diamant solitaire', 2499.99, '/images/products/collier-1.jpg', 2),
+('Collier Perles', 'Collier de perles Akoya', 1899.99, '/images/products/collier-2.jpg', 2),
+('Collier Cœur', 'Pendentif cœur en argent', 89.99, '/images/products/collier-3.jpg', 2),
+
+-- Bagues
+('Alliance Diamants', 'Alliance tour complet en diamants', 3299.99, '/images/products/bague-1.jpg', 3),
+('Bague Émeraude', 'Bague avec émeraude 1 carat', 1799.99, '/images/products/bague-2.jpg', 3),
+('Bague Argent', 'Bague moderne avec trois anneaux', 129.99, '/images/products/bague-3.jpg', 3),
+
+-- Boucles d'oreilles
+('Puces Diamants', 'Puces en or blanc avec diamants', 1499.99, '/images/products/boucles-1.jpg', 4),
+('Créoles Or', 'Créoles classiques en or jaune', 449.99, '/images/products/boucles-2.jpg', 4),
+('Boucles Cristal', 'Boucles pendantes avec cristaux', 79.99, '/images/products/boucles-3.jpg', 4);
+
+-- Exemple de panier (Marie a 2 articles dans son panier)
+INSERT INTO panier (user_id, produit_id, quantite) VALUES
+(2, 1, 1),
+(2, 6, 2);
+
+-- Exemple de commandes (Jean a acheté 2 produits)
+INSERT INTO commande (user_id, produit_id, quantite) VALUES
+(3, 3, 1),
+(3, 9, 1);
+
+-- ============================================
+-- COMPTES DE TEST
+-- ============================================
+-- Email: admin@sparkleloop.com
+-- Password: password123
+--
+-- Email: marie@example.com  
+-- Password: password123
+--
+-- Email: jean@example.com
+-- Password: password123
+-- ============================================

@@ -10,10 +10,10 @@ use Mini\Models\User;
 final class HomeController extends Controller
 {
     // Déclare la méthode d'action par défaut qui ne retourne rien
-    public function index(): void
+    public function acceuil(): void
     {
         // Appelle le moteur de rendu avec la vue et ses paramètres
-        $this->render('home/index', params: [
+        $this->render('home/acceuil', params: [
             // Définit le titre transmis à la vue
             'title' => 'SparkleLoop',
             'prenom' => 'Toto',
@@ -24,7 +24,7 @@ final class HomeController extends Controller
     public function users(): void
     {
         // Appelle le moteur de rendu avec la vue et ses paramètres
-        $this->render('home/users', params: [
+        $this->render('admin/users', params: [
             // Définit le titre transmis à la vue
             'users' => $users = User::getAll(),
             'title' => 'Liste des utilisateurs',

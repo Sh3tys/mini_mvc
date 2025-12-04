@@ -15,6 +15,8 @@
         <a href="/about">À propos</a>
         <a href="/contact">Contact</a>
         <a href="/cart">Panier</a>
+        <a href="/login">Connexion</a>
+
     </nav>
 </header>
 <main class="content">

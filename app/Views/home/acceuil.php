@@ -20,22 +20,25 @@
 <section class="categories">
     <h2>Découvrez nos catégories</h2>
     <div class="category-grid">
-        <div class="category-card">
+        <a href="/products?category=1" class="category-card">
             <img src="/images/categories/bracelet.png" alt="Bracelets">
             <div class="category-text">Bracelets</div>
-        </div>
-        <div class="category-card">
+        </a>
+
+        <a href="/products?category=2" class="category-card">
             <img src="/images/categories/collier.png" alt="Colliers">
             <div class="category-text">Colliers</div>
-        </div>
-        <div class="category-card">
+        </a>
+
+        <a href="/products?category=3" class="category-card">
             <img src="/images/categories/ring.png" alt="Bagues">
             <div class="category-text">Bagues</div>
-        </div>
-        <div class="category-card">
+        </a>
+
+        <a href="/products?category=4" class="category-card">
             <img src="/images/categories/boucleOreille.png" alt="Boucles d'oreilles">
             <div class="category-text">Boucles d'oreilles</div>
-        </div>
+        </a>
     </div>
 </section>
 
@@ -58,7 +61,16 @@
             <div class="stars">★★★★★</div>
             <p>“Je recommande fortement !” – Clara</p>
         </div>
+        <div class="review">
+            <div class="stars">★★★☆☆</div>
+            <p>“Un peu d'attente avant de recevoir ma commande.” – Gérard</p>
+        </div>
+        <div class="review">
+            <div class="stars">★★★★☆</div>
+            <p>“Troisième commande, toujours aussi qualitative, mais le délai a été un peu plus long.” – Michel</p>
+        </div>
     </div>
+    <a href="https://fr.trustpilot.com" target="_blank" style="justify-content: center; display: block; text-align: center; color: black; margin-top: 3rem; margin-bottom: -2rem;">Voir plus...</a>
 </section>
 
 <section class="why-us">

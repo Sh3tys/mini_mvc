@@ -8,11 +8,17 @@ use Mini\Core\Router;
 
 // Table des routes minimaliste
 $routes = [
-    ['GET', '/', [Mini\Controllers\HomeController::class, 'index']],
-    ['GET', '/users', [Mini\Controllers\HomeController::class, 'users']],
+    ['GET', '/', [Mini\Controllers\HomeController::class, 'acceuil']],
+    ['GET', '/products', [Mini\Controllers\ProductController::class, 'index']],
+    ['GET', '/about', [Mini\Controllers\ConnectController::class, 'logout']],
     ['GET', '/contact', [Mini\Controllers\ContactController::class, 'index']],
-    ['GET', '/connect/login', [Mini\Controllers\ConnectController::class, 'login']],
-    ['GET', '/connect/logout', [Mini\Controllers\ConnectController::class, 'logout']],
+    ['GET', '/cart', [Mini\Controllers\ConnectController::class, 'logout']],
+    ['GET', '/login', [Mini\Controllers\ConnectController::class, 'login']],
+
+    ['GET', '/detailProduct', [Mini\Controllers\ConnectController::class, 'logout']],
+
+
+    ['GET', '/users', [Mini\Controllers\HomeController::class, 'users']], // ADMIN
 ];
 
 
