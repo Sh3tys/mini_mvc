@@ -190,10 +190,6 @@
   margin: 0;
 }
 
-.qty-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 /* ================= TOTAL LIGNE ================= */
 .item-total {
   text-align: center;
