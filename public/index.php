@@ -12,7 +12,13 @@ $routes = [
     ['GET', '/products', [Mini\Controllers\ProductController::class, 'index']],
     ['GET', '/about', [Mini\Controllers\ConnectController::class, 'logout']],
     ['GET', '/contact', [Mini\Controllers\ContactController::class, 'index']],
-    ['GET', '/cart', [Mini\Controllers\ConnectController::class, 'logout']],
+
+    // Routes Panier
+    ['GET', '/cart', [Mini\Controllers\CartController::class, 'index']],
+    ['POST', '/cart/add', [Mini\Controllers\CartController::class, 'add']],
+    ['POST', '/cart/update', [Mini\Controllers\CartController::class, 'updateQuantity']],
+    ['POST', '/cart/remove', [Mini\Controllers\CartController::class, 'remove']],
+    ['POST', '/cart/checkout', [Mini\Controllers\CartController::class, 'checkout']],
     
     // login / register / logout
     ['GET', '/register', [Mini\Controllers\ConnectController::class, 'register']],
