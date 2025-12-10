@@ -15,10 +15,11 @@ $userPrenom = $_SESSION['user_prenom'] ?? '';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= isset($title) ? htmlspecialchars($title) : 'Boutique' ?></title>
     <link rel="stylesheet" href="./style/layout.css">
+    <link rel="icon" href="./images/logo/logo.png" type="image/x-icon">
 </head>
 <body>
 <header class="navbar">
-    <div class="logo">SparkleLoop</div>
+    <div class="logo"> <!-- <img src="./images/logo/logo.png" alt="Logo SparkleLoop" style="max-width: 40px; border-radius: 4px;"> -->SparkleLoop</div>
     <nav>
         <a href="/">Accueil</a>
         <a href="/products">Produits</a>
