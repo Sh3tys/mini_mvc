@@ -1,3 +1,13 @@
+<?php
+// Démarrer la session si elle n'est pas déjà démarrée
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Vérifier si l'utilisateur est connecté
+$isConnected = isset($_SESSION['user_id']);
+$userPrenom = $_SESSION['user_prenom'] ?? '';
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -15,8 +25,15 @@
         <a href="/about">À propos</a>
         <a href="/contact">Contact</a>
         <a href="/cart">Panier</a>
-        <a href="/login">Connexion</a>
-
+        
+        <?php if ($isConnected): ?>
+            <a href="/logout" class="nav-connected">
+                <span class="status-indicator"></span>
+                ✅Connecté
+            </a>
+        <?php else: ?>
+            <a href="/login"> ❌Connexion</a>
+        <?php endif; ?>
     </nav>
 </header>
 <main class="content">

@@ -1,0 +1,243 @@
+/* ================= PAGE DÉTAIL PRODUIT ================= */
+.product-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* ================= BOUTON RETOUR ================= */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #1e88e5;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  color: #1565c0;
+  transform: translateX(-5px);
+}
+
+.back-button svg {
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover svg {
+  transform: translateX(-3px);
+}
+
+/* ================= CONTENU PRODUIT ================= */
+.product-content {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+/* ================= IMAGE PRODUIT ================= */
+.product-image-container {
+  background: #f5f7fa;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-main-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================= DÉTAILS PRODUIT ================= */
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.product-price {
+  font-size: 2rem;
+  color: #1e88e5;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ================= BADGE CATÉGORIE ================= */
+.product-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: #f5f7fa;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.category-label {
+  font-weight: 600;
+  color: #666;
+}
+
+.category-value {
+  color: #1e88e5;
+  font-weight: 700;
+}
+
+/* ================= DESCRIPTION ================= */
+.product-description {
+  margin-top: 1rem;
+}
+
+.product-description h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.product-description p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* ================= SECTION ACHAT ================= */
+.buy-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  border-top: 2px solid #f5f7fa;
+}
+
+.buy-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #1e88e5;
+  color: white;
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(30, 136, 229, 0.3);
+}
+
+.buy-button:hover {
+  background: #1565c0;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(30, 136, 229, 0.4);
+}
+
+.buy-button:active {
+  transform: translateY(-1px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .product-content {
+    grid-template-columns: 400px 1fr;
+    gap: 3rem;
+  }
+
+  .product-main-image {
+    height: 400px;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .product-price {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail {
+    padding: 2rem 1.5rem;
+  }
+
+  .product-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .product-main-image {
+    height: 350px;
+  }
+
+  .product-title {
+    font-size: 1.8rem;
+  }
+
+  .product-price {
+    font-size: 1.5rem;
+  }
+
+  .product-description h3 {
+    font-size: 1.3rem;
+  }
+
+  .product-description p {
+    font-size: 1rem;
+  }
+
+  .buy-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail {
+    padding: 1.5rem 1rem;
+  }
+
+  .back-button {
+    font-size: 0.9rem;
+  }
+
+  .product-main-image {
+    height: 280px;
+  }
+
+  .product-title {
+    font-size: 1.5rem;
+  }
+
+  .product-price {
+    font-size: 1.3rem;
+  }
+
+  .product-category-badge {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .buy-button {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}

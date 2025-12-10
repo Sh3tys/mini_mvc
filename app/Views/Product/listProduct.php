@@ -18,7 +18,7 @@
         <div class="products-grid">
             <?php foreach ($produits as $produit): ?>
                 <div class="product-card" data-category="<?= $produit['categorie_id'] ?>">
-                    <a href="/produit/<?= $produit['id'] ?>" class="product-link">
+                    <a href="/detailProduct?id=<?= $produit['id'] ?>" class="product-link">
                         <div class="product-image">
                             <img src="<?= htmlspecialchars($produit['image']) ?>" 
                                  alt="<?= htmlspecialchars($produit['nom']) ?>">

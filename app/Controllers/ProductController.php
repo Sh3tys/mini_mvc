@@ -21,9 +21,9 @@ final class ProductController extends Controller
         // Récupération des données via les modèles
         $produits = Product::getAll();
         $categories = Categorie::getAll();
-
+        
         // Appelle le moteur de rendu avec la vue et ses paramètres
-        $this->render('Produit/listProduct', params: [
+        $this->render('Product/listProduct', params: [
             'title' => 'Nos Produits',
             'produits' => $produits,
             'categories' => $categories,
@@ -32,21 +32,33 @@ final class ProductController extends Controller
 
     /**
      * Affiche les détails d'un produit
+     * L'ID peut être passé en paramètre OU récupéré depuis $_GET['id']
      */
-    public function detail(int $id): void
+    public function detail(?int $id = null): void
     {
-        // Récupération du produit
-        $produit = Product::findById($id);
-
-        // Si le produit n'existe pas, rediriger vers la liste
-        if (!$produit) {
-            header('Location: /produits');
+        // Si pas d'ID passé en paramètre, essayer de le récupérer depuis GET
+        if ($id === null) {
+            $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+        }
+        
+        // Si toujours pas d'ID valide, rediriger
+        if ($id <= 0) {
+            header('Location: /products');
             exit;
         }
-
+        
+        // Récupération du produit
+        $produit = Product::findById($id);
+        
+        // Si le produit n'existe pas, rediriger vers la liste
+        if (!$produit) {
+            header('Location: /products');
+            exit;
+        }
+        
         // Appelle le moteur de rendu pour le détail
-        $this->render('Produit/detailProduct', params: [
-            'title' => 'Détail du produit', // Tu peux dynamiser ça avec le nom du produit si tu veux
+        $this->render('Product/detailProduct', params: [
+            'title' => htmlspecialchars($produit['nom']) . ' - SparkleLoop',
             'produit' => $produit,
         ]);
     }

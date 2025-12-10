@@ -1,0 +1,222 @@
+/* ================= PAGE PROFIL ================= */
+.profile-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* ================= HEADER PROFIL ================= */
+.profile-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.profile-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* ================= CONTENU PROFIL ================= */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.profile-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.profile-section h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f5f7fa;
+  font-weight: 600;
+}
+
+/* ================= MESSAGES ================= */
+.error-message {
+  background: #fee;
+  border-left: 4px solid #e53e3e;
+  color: #c53030;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.success-message {
+  background: #e6fffa;
+  border-left: 4px solid #38b2ac;
+  color: #234e52;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ================= FORMULAIRE PROFIL ================= */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 0.9rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1e88e5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+}
+
+.form-group small {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* ================= BOUTONS ================= */
+.btn-confirm {
+  background: #1e88e5;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  width: fit-content;
+}
+
+.btn-confirm:hover {
+  background: #1565c0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(30, 136, 229, 0.3);
+}
+
+.btn-confirm:active {
+  transform: translateY(0);
+}
+
+/* ================= SECTION DÉCONNEXION ================= */
+.logout-section {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border: 2px solid #fc8181;
+}
+
+.logout-section h2 {
+  color: #c53030;
+  border-bottom-color: #fed7d7;
+}
+
+.logout-section p {
+  color: #742a2a;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.btn-logout {
+  display: inline-block;
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(229, 62, 62, 0.3);
+}
+
+.btn-logout:active {
+  transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .profile-header h1 {
+    font-size: 2rem;
+  }
+
+  .profile-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .profile-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .btn-confirm,
+  .btn-logout {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .profile-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .profile-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .form-group input {
+    padding: 0.8rem;
+  }
+
+  .btn-confirm,
+  .btn-logout {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+}
