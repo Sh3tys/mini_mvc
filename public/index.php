@@ -10,7 +10,7 @@ use Mini\Core\Router;
 $routes = [
     ['GET', '/', [Mini\Controllers\HomeController::class, 'acceuil']],
     ['GET', '/products', [Mini\Controllers\ProductController::class, 'index']],
-    ['GET', '/about', [Mini\Controllers\ConnectController::class, 'logout']],
+    ['GET', '/about', [Mini\Controllers\AboutController::class, 'index']],
     ['GET', '/contact', [Mini\Controllers\ContactController::class, 'index']],
 
     // Routes Panier
