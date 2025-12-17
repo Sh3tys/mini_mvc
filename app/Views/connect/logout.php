@@ -56,10 +56,15 @@
                         required
                     >
                 </div>
+                
+                <div style="display: flex; gap: 10px; align-items: center; justify-content: space-around;">
+                    <button type="submit" name="update_profile" class="btn-confirm">
+                        Confirmer les modifications
+                    </button>
 
-                <button type="submit" name="update_profile" class="btn-confirm">
-                    Confirmer les modifications
-                </button>
+                    <a href="/orders" class="btn-confirm">Récapitulatif de mes commandes</a>
+                </div>
+                
             </form>
         </div>
 

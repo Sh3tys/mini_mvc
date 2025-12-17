@@ -100,4 +100,14 @@ class Commande
         $stmt->execute([$userId]);
         return (int)$stmt->fetchColumn();
     }
+
+    /**
+     * Affiche toutes les commandes d'un utilisateur
+     * @param int $userId
+     * @return array
+     */
+    public static function getAllByUser($userId)
+    {
+        return self::getByUser($userId);
+    }
 }

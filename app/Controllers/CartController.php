@@ -185,4 +185,28 @@ class CartController extends Controller
         header('Location: /');
         exit;
     }
+
+    /**
+     * Affiche toutes les commandes de l'utilisateur connecté
+     * @return void
+     */
+    public function orders(): void
+    {
+        $this->startSession();
+
+        if (!$this->isConnected()) {
+            header('Location: /login');
+            exit;
+        }
+
+        $userId = $_SESSION['user_id'];
+        $orders = Commande::getAllByUser($userId);
+        $produits = Product::getAll();
+
+        $this->render('cart/orders', [
+            'title' => 'Mes Commandes',
+            'orders' => $orders,
+            'produits' => $produits,
+        ]);
+    }
 }

@@ -19,6 +19,7 @@ $routes = [
     ['POST', '/cart/update', [Mini\Controllers\CartController::class, 'updateQuantity']],
     ['POST', '/cart/remove', [Mini\Controllers\CartController::class, 'remove']],
     ['POST', '/cart/checkout', [Mini\Controllers\CartController::class, 'checkout']],
+    ['GET', '/orders', [Mini\Controllers\CartController::class, 'orders']],
     
     // login / register / logout
     ['GET', '/register', [Mini\Controllers\ConnectController::class, 'register']],
