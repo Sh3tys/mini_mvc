@@ -187,26 +187,34 @@ class CartController extends Controller
     }
 
     /**
-     * Affiche toutes les commandes de l'utilisateur connecté
-     * @return void
-     */
-    public function orders(): void
-    {
-        $this->startSession();
+ * Affiche toutes les commandes de l'utilisateur connecté
+ */
+public function orders(): void
+{
+    $this->startSession();
 
-        if (!$this->isConnected()) {
-            header('Location: /login');
-            exit;
-        }
-
-        $userId = $_SESSION['user_id'];
-        $orders = Commande::getAllByUser($userId);
-        $produits = Product::getAll();
-
-        $this->render('cart/orders', [
-            'title' => 'Mes Commandes',
-            'orders' => $orders,
-            'produits' => $produits,
-        ]);
+    if (!$this->isConnected()) {
+        $_SESSION['login_message'] = 'Connectez-vous pour accéder à vos commandes.';
+        header('Location: /login');
+        exit;
     }
+
+    $userId = $_SESSION['user_id'];
+    
+    // Récupérer les commandes groupées par date
+    $ordersGrouped = Commande::getGroupedByDate($userId);
+    
+    // Calculer le montant total dépensé
+    $totalSpent = Commande::getTotalSpent($userId);
+    
+    // Compter le nombre de commandes
+    $orderCount = Commande::count($userId);
+
+    $this->render('cart/orders', [
+        'title' => 'Mes Commandes',
+        'ordersGrouped' => $ordersGrouped,
+        'totalSpent' => $totalSpent,
+        'orderCount' => $orderCount,
+    ]);
+}
 }

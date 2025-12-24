@@ -11,7 +11,10 @@ $routes = [
     ['GET', '/', [Mini\Controllers\HomeController::class, 'acceuil']],
     ['GET', '/products', [Mini\Controllers\ProductController::class, 'index']],
     ['GET', '/about', [Mini\Controllers\AboutController::class, 'index']],
+
+    // Routes Contact
     ['GET', '/contact', [Mini\Controllers\ContactController::class, 'index']],
+    ['POST', '/contact', [Mini\Controllers\ContactController::class, 'index']],
 
     // Routes Panier
     ['GET', '/cart', [Mini\Controllers\CartController::class, 'index']],

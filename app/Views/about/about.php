@@ -71,15 +71,6 @@
                     Nous garantissons une livraison rapide et protégée partout en France.
                 </p>
             </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">💼</div>
-                <h3>Service Client Dévoué</h3>
-                <p>
-                    Notre équipe est disponible 7j/7 pour répondre à vos questions et vous accompagner 
-                    dans votre choix. Votre satisfaction est notre priorité absolue.
-                </p>
-            </div>
         </div>
     </section>
 
