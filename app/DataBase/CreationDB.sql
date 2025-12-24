@@ -1,9 +1,19 @@
 -- ============================================
--- BASE DE DONNÉES SPARKLELOOP - VERSION SIMPLE
+-- BASE DE DONNÉES SPARKLELOOP
 -- ============================================
 
--- Table pour les utilisateurs
+-- Suppression des tables existantes (si besoin de reset)
+DROP TABLE IF EXISTS message;
+DROP TABLE IF EXISTS commande;
+DROP TABLE IF EXISTS panier;
+DROP TABLE IF EXISTS produit;
+DROP TABLE IF EXISTS categorie;
+DROP TABLE IF EXISTS user;
 
+-- ============================================
+-- TABLE: user
+-- Gestion des utilisateurs du site
+-- ============================================
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     prenom VARCHAR(100) NOT NULL,
@@ -12,15 +22,19 @@ CREATE TABLE user (
     password VARCHAR(255) NOT NULL
 );
 
--- Table pour les Catégories
-
+-- ============================================
+-- TABLE: categorie
+-- Catégories de bijoux
+-- ============================================
 CREATE TABLE categorie (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL
 );
 
--- Table des produits
-
+-- ============================================
+-- TABLE: produit
+-- Produits (bijoux) disponibles
+-- ============================================
 CREATE TABLE produit (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
@@ -31,8 +45,23 @@ CREATE TABLE produit (
     FOREIGN KEY (categorie_id) REFERENCES categorie(id)
 );
 
--- table de l'historique des commandes
-
+-- ============================================
+-- TABLE: panier
+-- Les produits pas encore achetés
+-- ============================================
+CREATE TABLE panier (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    produit_id INT NOT NULL,
+    quantite INT NOT NULL DEFAULT 1,
+    date_ajout TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (produit_id) REFERENCES produit(id)
+);
+-- ============================================
+-- TABLE: commande
+-- Les produits achetés par les utilisateurs
+-- ============================================
 CREATE TABLE commande (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -43,32 +72,24 @@ CREATE TABLE commande (
     FOREIGN KEY (produit_id) REFERENCES produit(id)
 );
 
--- Table n'est commande pas encore passé
-
-CREATE TABLE panier (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    produit_id INT NOT NULL,
-    quantite INT NOT NULL DEFAULT 1,
-    date_ajout TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES user(id),
-    FOREIGN KEY (produit_id) REFERENCES produit(id)
-);
-
+-- ============================================
+-- TABLE: message
+-- Messages de contact des utilisateurs
+-- ============================================
 CREATE TABLE message (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     message TEXT NOT NULL,
     date_envoi TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
-    INDEX idx_user (user_id),
-    INDEX idx_date (date_envoi)
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
+-- ============================================
+-- DONNÉES DE TEST
+-- ============================================
 
--- ============== DONNNEES DE TESTE ======================
-
--- Utilisateurs de test (password: password123)
+-- Utilisateurs de test (mot de passe: password123)
+-- Hash généré avec password_hash('password123', PASSWORD_DEFAULT)
 INSERT INTO user (prenom, nom, email, password) VALUES
 ('Admin', 'SparkleLoop', 'admin@sparkleloop.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
 ('Marie', 'Dupont', 'marie@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
@@ -113,13 +134,18 @@ INSERT INTO commande (user_id, produit_id, quantite) VALUES
 (3, 3, 1),
 (3, 9, 1);
 
+-- Exemple de messages de contact
+INSERT INTO message (user_id, message) VALUES
+(2, 'Bonjour, j\'aimerais savoir si vous proposez des personnalisations sur les bagues ?'),
+(3, 'Quel est le délai de livraison pour la France ?');
+
 -- ============================================
--- COMPTES DE TEST
+-- INFORMATIONS DE CONNEXION TEST
 -- ============================================
 -- Email: admin@sparkleloop.com
 -- Password: password123
 --
--- Email: marie@example.com  
+-- Email: marie@example.com
 -- Password: password123
 --
 -- Email: jean@example.com

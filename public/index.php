@@ -9,7 +9,6 @@ use Mini\Core\Router;
 // Table des routes minimaliste
 $routes = [
     ['GET', '/', [Mini\Controllers\HomeController::class, 'acceuil']],
-    ['GET', '/products', [Mini\Controllers\ProductController::class, 'index']],
     ['GET', '/about', [Mini\Controllers\AboutController::class, 'index']],
 
     // Routes Contact
@@ -33,7 +32,8 @@ $routes = [
     ['POST', '/logout', [Mini\Controllers\ConnectController::class, 'logout']],
     ['GET', '/disconnect', [Mini\Controllers\ConnectController::class, 'disconnect']],
     
-    //Produts Detail
+    //Produits
+    ['GET', '/products', [Mini\Controllers\ProductController::class, 'index']],
     ['GET', '/detailProduct', [Mini\Controllers\ProductController::class, 'detail']],
     
     // ADMIN
